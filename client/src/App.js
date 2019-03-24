@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import {ListGroup, ListGroupItem, ListGroupItemText, Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import Announcements from "./components/Announcements";
 import Schedule from "./components/Schedule";
 // import uuid from "uuid";
-import axios from "axios";
+import request from "request";
 
 import "./App.css";
 
@@ -13,21 +14,35 @@ class App extends Component {
     schedule: []
   };
 
-  componentDidMount() {
-    axios
-      .get("https://slack.com/api/groups.history", {
-        params: {
-          token: process.env.SLACK_TOKEN,
-          channel: process.env.ANN_CHANNEL
-        }
-      })
-      .then(res => {
-        // console.log(res.data.messages[1].client_msg_id);
-        // var ann = res.data.messages;
-        var ann = [{ id: 1, text: "ann1" }, { id: 2, text: "ann2" }];
-        var sch = [{ id: 1, text: "sch1" }, { id: 2, text: "sch2" }];
-        this.setState({ announcements: ann, schedule: sch });
+  refresh = () => (
+    this.setState({
+        start: 0
+    }, () => {
+      request({
+        uri: "http://hawkhack.io/api/announcements",
+        method: "GET",
+        json: true,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+      },
+    }, (error, response, body) => {
+      if(error) throw error;
+      console.log(response);
+      if (body.statusCode === 200) {
+      this.setState({
+          annoucements: body.body,
+          schedule:[{id:1, text: "hello"}, {id:2, text: "world"}]
       });
+    }
+    });
+    })
+)
+
+  componentWillMount() {
+    this.setState({ announcements: [], schedule: [] })
+        this.refresh();
+        setInterval(this.refresh, 5000);
   }
 
   render() {
