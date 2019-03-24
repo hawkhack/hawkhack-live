@@ -26,7 +26,8 @@ request(options, (err, res, body) => {
     if (element.type == "message") {
       log.unshift({
         text: element.text,
-        time: `${d.getHours()}:${d.getMinutes()}`
+        // time: `${d.getHours()}:${d.getMinutes()}`
+        ts: element.ts
       });
     }
   });
@@ -54,7 +55,8 @@ rtm.on("message", msg => {
 
   message = {
     text: msg.text,
-    time: `${d.getHours()}:${d.getMinutes()}`
+    // time: `${d.getHours()}:${d.getMinutes()}`
+    ts: ts
   };
   log.push(message);
   history = {
