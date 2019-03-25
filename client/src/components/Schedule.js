@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import ListItem from "./ListItem";
 import PropTypes from "prop-types";
 
-class Schedule extends Component {
-  render() {
-    return this.props.messages.map(message => <ListItem key={message.id} message={message} />);
-  }
+const Schedule = ({...props}) => {
+  const { messages } = props
+  return messages.map(message => <ListItem key={message.id} message={message} />);
 }
 
 // PropTypes

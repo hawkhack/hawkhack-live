@@ -1,16 +1,40 @@
-import React, { Component } from "react";
-import ListItem from "./ListItem";
-import PropTypes from "prop-types";
+import React, { Fragment } from "react";
+import { withStyles } from '@material-ui/core/styles';
+import { List, Typography } from '@material-ui/core';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
-class Announcements extends Component {
-  render() {
-    return this.props.messages.map(message => <ListItem key={message.client_msg_id} message={message} />);
+const announcementStyles = {
+  time: {
+    fontSize: "20px",
+    color: "black"
+  },
+  listItem: {
+    fontSize: "40px"
   }
 }
 
-// PropTypes
-Announcements.propTypes = {
-  messages: PropTypes.array.isRequired
-};
 
-export default Announcements;
+const Announcements = (props) => {
+  const { announcements, classes } = props
+  return (
+    <List>
+      { announcements.reverse().slice(0, 5).map((announcement, key) => (
+        <ListItem key={key}>
+          <ListItemText secondary={
+            <Fragment>
+              <Typography component="span" className={classes.listItem}>
+               {announcement.text && announcement.text.replace(/(:[^:\s]*:)|(<[^>\s]*>)/g, '').trim()}
+              </Typography>
+              <Typography className={classes.time}>
+                {new Date(announcement.ts * 1000).toLocaleTimeString()}
+              </Typography>
+            </Fragment>
+          }/>
+        </ListItem>
+      )) }
+    </List>
+  );
+}
+
+export default withStyles(announcementStyles)(Announcements);

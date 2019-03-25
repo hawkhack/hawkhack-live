@@ -1,70 +1,50 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import {ListGroup, ListGroupItem, ListGroupItemText, Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import React, { Component, Fragment } from "react";
 import Announcements from "./components/Announcements";
 import Schedule from "./components/Schedule";
-// import uuid from "uuid";
-import request from "request";
+import { Grid } from '@material-ui/core'
 
-import "./App.css";
 
 class App extends Component {
   state = {
     announcements: [],
-    schedule: []
+    schedule:[{id:1, text: "hello"}, {id:2, text: "world"}]
   };
 
-  refresh = () => (
-    this.setState({
-        start: 0
-    }, () => {
-      request({
-        uri: "http://hawkhack.io/api/announcements",
-        method: "GET",
-        json: true,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-      },
-    }, (error, response, body) => {
-      if(error) throw error;
-      console.log(response);
-      if (body.statusCode === 200) {
-      this.setState({
-          annoucements: body.body,
-          schedule:[{id:1, text: "hello"}, {id:2, text: "world"}]
-      });
-    }
-    });
-    })
-)
+  refresh = () => {
+    fetch("http://localhost:5000/api/announcements")
+      .then(response => response.json())
+      .then(result => {
+        this.setState({
+          announcements: result.log
+        })
+        console.log(this.state)
+      })
+      .catch(err => console.log(err))
+  }
 
-  componentWillMount() {
-    this.setState({ announcements: [], schedule: [] })
-        this.refresh();
-        setInterval(this.refresh, 5000);
+  componentDidMount() {
+    this.refresh()
+    setInterval(this.refresh, 5000)
   }
 
   render() {
     return (
-      <Router>
-        <div className='App'>
-          <div className='container'>
-            <Route
-              exact
-              path='/'
-              render={props => (
-                <React.Fragment>
-                  <Announcements messages={this.state.announcements} />
-                  <Schedule messages={this.state.schedule} />
-                </React.Fragment>
-              )}
-            />
-          </div>
-        </div>
-      </Router>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <Grid item>
+            <Announcements announcements={this.state.announcements} />
+          </Grid>
+          <Grid item>
+            <Schedule messages={this.state.schedule} />
+          </Grid>
+        </Grid>
     );
   }
 }
+
 
 export default App;
