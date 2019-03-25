@@ -19,12 +19,12 @@ const announcementStyles = {
 const Announcements = (props) => {
   const { announcements, classes } = props
   return (
-    <List>
+    <List style={{maxWidth: "470px"}}>
       { announcements.reverse().slice(0, 7).map((announcement, key) => (
         <ListItem key={key}>
           <ListItemText secondary={
             <Fragment>
-              <Typography component="span" className={classes.listItem}>
+              <Typography component="span" className={classes.listItem} >
                {announcement.text && announcement.text.replace(/(:[^:\s]*:)|(<[^>\s]*>)/g, '').trim()}
               </Typography>
               <Typography className={classes.time}>

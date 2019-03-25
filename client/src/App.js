@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import Announcements from "./components/Announcements";
 import Schedule from "./components/Schedule";
 import { Grid } from '@material-ui/core'
+import { withStyles } from '@material-ui/core'
+
+const appStyles = {
+  gridItem: {
+    paddingRight: "300px",
+    paddingLeft: "300px"
+  }
+}
 
 
 class App extends Component {
@@ -56,7 +64,6 @@ class App extends Component {
         this.setState({
           announcements: result.log
         })
-        console.log(this.state)
       })
       .catch(err => console.log(err))
   }
@@ -67,18 +74,17 @@ class App extends Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
         <Grid
           container
           direction="row"
           justify="center"
-          alignItems="center"
-          spacing={40}
         >
-          <Grid item >
+          <Grid item className={classes.gridItem} xs={6}>
             <Announcements announcements={this.state.announcements} />
           </Grid>
-          <Grid item >
+          <Grid item className={classes.gridItem} xs={6}>
             <Schedule messages={this.state.schedule} />
           </Grid>
         </Grid>
@@ -87,4 +93,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default withStyles(appStyles)(App);
