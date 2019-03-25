@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 import { List, Typography } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
@@ -27,16 +27,18 @@ const Schedule = ({...props}) => {
     <List>
       { msg.slice(0, 7).map((msg, key) => (
         <ListItem key={key}>
-          <ListItemText secondary={
-            <Fragment>
-              <Typography component="span" className={classes.listItem}>
-               {msg.text && msg.text.replace(/(:[^:\s]*:)|(<[^>\s]*>)/g, '').trim()}
+          <ListItemText 
+            primary={
+              <Typography component="span" style={{fontSize:"30px", color: "#5dfdff"}}>
+                {msg.text && msg.text.replace(/(:[^:\s]*:)|(<[^>\s]*>)/g, '').trim()}
               </Typography>
+            } 
+            secondary={
               <Typography className={classes.time}>
                 {msg.time.toLocaleTimeString()}
               </Typography>
-            </Fragment>
-          }/>
+            }
+          />
         </ListItem>
       )) }
     </List>
