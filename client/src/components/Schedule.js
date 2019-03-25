@@ -12,6 +12,10 @@ const scheduleStyles = {
   listItem: {
     fontSize: "50px",
     color: "#5dfdff"
+  },
+  location:{
+    color:"#63FCC0",
+    fontWeight: "bold"
   }
 }
 
@@ -35,7 +39,7 @@ const Schedule = ({...props}) => {
             } 
             secondary={
               <Typography className={classes.time}>
-                {msg.time.toLocaleTimeString()}
+                {msg.time.toLocaleTimeString()}<span className={classes.location} > {msg.location?"in "+msg.location:""}</span>
               </Typography>
             }
           />

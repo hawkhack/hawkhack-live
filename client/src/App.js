@@ -38,7 +38,7 @@ class App extends Component {
     {
       text:"Lunch",
       time: new Date(2019, 2, 30, 11, 30),
-      location: ""
+      location: "SC Cafeteria"
     },
     {
       text:"Workshop 01",
@@ -83,7 +83,7 @@ class App extends Component {
     {
       text:"Midnight Snack",
       time: new Date(2019, 2, 31, 0),
-      location: ""
+      location: "SC Cafeteria"
     },
     {
       text:"Slideshow Karaoke",
@@ -108,7 +108,7 @@ class App extends Component {
     {
       text:"HawkHack 2019 Ends",
       time: new Date(2019, 2, 31, 16),
-      location: "N/A"
+      location: ""
     }]
   };
 
