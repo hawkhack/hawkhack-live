@@ -20,7 +20,7 @@ const Schedule = ({...props}) => {
   var msg=[];
 
   messages.forEach(item => {
-    if(item.time >= new Date())
+    if(item.time >= new Date(new Date().getTime() - 10*60000))
     msg.push(item)
   })
   return (
