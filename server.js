@@ -1,69 +1,46 @@
 const { port, token, botToken } = require("./config/config");
 const request = require("request");
 const express = require("express");
-const { RTMClient } = require("@slack/client");
-var fs = require("fs");
+const cors = require('cors')
 
 const app = express();
 
-//get backlog of announcements
-log = [];
+app.use(cors())
+app.get('/', (req, res) => res.status(200).send("OH YEAH"))
 
-var options = {
-  url: "https://slack.com/api/groups.history",
-  qs: {
-    token: token,
-    channel: "GH7J5C9FD"
-  }
-};
+app.get("/api/announcements", (_req, _res)=>{
+  var log = [];
+  var history = {};
 
-request(options, (err, res, body) => {
-  if (err) console.log(err);
-  var d = new Date(0);
-  var messages = JSON.parse(body).messages;
-  messages.forEach(element => {
-    d.setUTCSeconds(element.ts);
-    if (element.type == "message") {
-      log.unshift({
-        text: element.text,
-        // time: `${d.getHours()}:${d.getMinutes()}`
-        ts: element.ts
-      });
+  var options = {
+    url: "https://slack.com/api/groups.history",
+    qs: {
+      token: token,
+      channel: "GH7J5C9FD"
     }
-  });
-  history = {
-    log: log
   };
-  fs.writeFile("announcements.json", JSON.stringify(history), "utf8", err => {
+
+  request(options, (err, res, body) => {
     if (err) console.log(err);
-    else console.log("message logged");
+    var messages = JSON.parse(body).messages;
+    messages.forEach(element => {
+      if (element.type == "message") {
+        log.unshift({
+          text: element.text,
+          ts: element.ts
+        });
+      }
+    });
+    history = {
+      status: 200,
+      log: log
+    };
+    return _res.status(200).json(history);
   });
 });
 
-//start RTM to read messages in realtime
-const rtm = new RTMClient(botToken);
-rtm.start();
-console.log("RTM Started");
+const APP_PORT = 5000
 
-//channel id GH7J5C9FD
-
-rtm.on("message", msg => {
-  var d = new Date(0);
-  d.setUTCSeconds(msg.event_ts);
-  console.log(`(channel: ${msg.channel}) ${msg.user} says: ${msg.text} | Time= ${d.getHours()}:${d.getMinutes()}`);
-  console.log(d.getTime());
-
-  message = {
-    text: msg.text,
-    // time: `${d.getHours()}:${d.getMinutes()}`
-    ts: ts
-  };
-  log.push(message);
-  history = {
-    log: log
-  };
-  fs.writeFile("announcements.json", JSON.stringify(history), "utf8", err => {
-    if (err) console.log(err);
-    else console.log("message logged");
-  });
-});
+app.listen(APP_PORT, () => {
+  console.log(`Server is listening on ${APP_PORT}`)
+})
