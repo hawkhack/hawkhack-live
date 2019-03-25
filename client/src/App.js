@@ -6,8 +6,8 @@ import { withStyles } from '@material-ui/core'
 
 const appStyles = {
   gridItem: {
-    paddingRight: "300px",
-    paddingLeft: "300px"
+    paddingRight: "100px",
+    paddingLeft: "100px"
   }
 }
 
@@ -17,43 +17,43 @@ class App extends Component {
     announcements: [],
     schedule:[{
       text:"Check In",
-      time: new Date(2019, 3, 30, 9)
+      time: new Date(2019, 2, 30, 9)
     },
     {
       text:"Opening Ceremony",
-      time: new Date(2019, 3, 30, 10)
+      time: new Date(2019, 2, 30, 10)
     },
     {
       text:"Hacking Begins",
-      time: new Date(2019, 3, 30, 11)
+      time: new Date(2019, 2, 30, 11)
     },
     {
       text:"Lunch",
-      time: new Date(2019, 3, 30, 12)
+      time: new Date(2019, 2, 30, 12)
     },
     {
       text:"Dinner",
-      time: new Date(2019, 3, 30, 19)
+      time: new Date(2019, 2, 30, 19)
     },
     {
       text:"Midnight Snack",
-      time: new Date(2019, 3, 31, 0)
+      time: new Date(2019, 2, 31, 0)
     },
     {
       text:"Breakfast",
-      time: new Date(2019, 3, 31, 9)
+      time: new Date(2019, 2, 31, 9)
     },
     {
       text:"Hacking Ends",
-      time: new Date(2019, 3, 31, 11)
+      time: new Date(2019, 2, 31, 11)
     },
     {
       text:"Lunch",
-      time: new Date(2019, 3, 31, 12)
+      time: new Date(2019, 2, 31, 12)
     },
     {
       text:"Closing Ceremony",
-      time: new Date(2019, 3, 31, 15)
+      time: new Date(2019, 2, 31, 15)
     }]
   };
 

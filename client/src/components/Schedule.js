@@ -6,11 +6,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 const scheduleStyles = {
   time: {
-    fontSize: "20px",
-    color: "#5dfdff"
+    fontSize: "40px",
+    color: "#fff"
   },
   listItem: {
-    fontSize: "30px",
+    fontSize: "50px",
     color: "#5dfdff"
   }
 }
@@ -29,7 +29,7 @@ const Schedule = ({...props}) => {
         <ListItem key={key}>
           <ListItemText 
             primary={
-              <Typography component="span" style={{fontSize:"30px", color: "#5dfdff"}}>
+              <Typography component="span" style={{fontSize:"50px", color: "#5dfdff"}}>
                 {msg.text && msg.text.replace(/(:[^:\s]*:)|(<[^>\s]*>)/g, '').trim()}
               </Typography>
             } 
