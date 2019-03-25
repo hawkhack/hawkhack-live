@@ -17,7 +17,7 @@ class App extends Component {
     announcements: [],
     schedule:[{
       text:"Check In",
-      time: new Date(2019, 2, 25, 2,14),
+      time: new Date(2019, 2, 30, 9),
       location: "SC Main Enterance"
     },
     {
