@@ -7,10 +7,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 const announcementStyles = {
   time: {
     fontSize: "20px",
-    color: "black"
+    color: "#5dfdff"
   },
   listItem: {
-    fontSize: "40px"
+    fontSize: "30px",
+    color: "#5dfdff"
   }
 }
 
@@ -19,7 +20,7 @@ const Announcements = (props) => {
   const { announcements, classes } = props
   return (
     <List>
-      { announcements.reverse().slice(0, 5).map((announcement, key) => (
+      { announcements.reverse().slice(0, 7).map((announcement, key) => (
         <ListItem key={key}>
           <ListItemText secondary={
             <Fragment>
