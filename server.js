@@ -10,6 +10,7 @@ app.use(cors());
 app.get("/", (req, res) => res.status(200).send("OH YEAH"));
 
 app.get("/api/schedule", (req, res) => {
+  delete require.cache[require.resolve('./schedule')];
   var _schedule = require("./schedule");
   var data = {
     schedule: _schedule
@@ -17,9 +18,11 @@ app.get("/api/schedule", (req, res) => {
   res.status(200).json(data);
 });
 
-app.get("/api/announcements", (_req, _res) => {
+app.get("/api/livedata", (_req, _res) => {
   var log = [];
-  var history = {};
+  var data = {};
+  delete require.cache[require.resolve('./schedule')];
+  var _schedule = require("./schedule");
 
   var options = {
     url: "https://slack.com/api/groups.history",
@@ -40,11 +43,12 @@ app.get("/api/announcements", (_req, _res) => {
         });
       }
     });
-    history = {
+    data = {
       status: 200,
-      log: log
+      log: log,
+      schedule: _schedule
     };
-    return _res.status(200).json(history);
+    return _res.status(200).json(data);
   });
 });
 

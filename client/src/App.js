@@ -18,19 +18,11 @@ class App extends Component {
   };
 
   refresh = () => {
-    fetch("http://localhost:5000/api/announcements")
+    fetch("http://localhost:5000/api/livedata")
       .then(response => response.json())
       .then(result => {
         this.setState({
-          announcements: result.log
-        });
-      })
-      .catch(err => console.log(err));
-
-    fetch("http://localhost:5000/api/schedule")
-      .then(response => response.json())
-      .then(result => {
-        this.setState({
+          announcements: result.log,
           schedule: result.schedule
         });
       })
