@@ -43,22 +43,22 @@ class App extends Component {
     {
       text:"Workshop 01",
       time: new Date(2019, 2, 30, 12, 30),
-      location: "SC Dining"
+      location: "SC Dining Hall"
     },
     {
       text:"Workshop 02",
       time: new Date(2019, 2, 30, 14),
-      location: "SC Dining"
+      location: "SC Dining Hall"
     },
     {
       text:"Workshop 03",
       time: new Date(2019, 2, 30, 15, 15),
-      location: "SC Dining"
+      location: "SC Dining Hall"
     },
     {
       text:"Workshop 04",
       time: new Date(2019, 2, 30, 17),
-      location: "SC Dining"
+      location: "SC Dining Hall"
     },
     {
       text:"Dinner",
@@ -88,7 +88,7 @@ class App extends Component {
     {
       text:"Slideshow Karaoke",
       time: new Date(2019, 2, 31, 1),
-      location: "DSC Dining"
+      location: "DSC Dining Hall"
     },
     {
       text:"Breakfast",
