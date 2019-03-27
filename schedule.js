@@ -17,7 +17,7 @@ module.exports = [
   {
     text: "Team Building Activity",
     time: new Date(2019, 2, 30, 11),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
   },
   {
     text: "Lunch",
@@ -27,23 +27,23 @@ module.exports = [
   {
     text: "Google Talk: Telling Your Technology Story",
     time: new Date(2019, 2, 30, 12, 30),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
   },
   {
     text: "Google Workshop: How to use GCP Credits ",
     time: new Date(2019, 2, 30, 14),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
   },
   {
     text: "Netflix & Lifion Talk: Hackathon Tactics",
     time: new Date(2019, 2, 30, 15, 30),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
   },
   {
     text:
       "UPS Workshop: Natural Language Processing (NLP) and Virtual Assitants",
     time: new Date(2019, 2, 30, 17),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
   },
   {
     text: "Dinner",
@@ -51,14 +51,14 @@ module.exports = [
     location: "SC Cafeteria A"
   },
   {
-    text: "Gaming Area Opens",
-    time: new Date(2019, 2, 30, 19),
-    location: "2nd Floor"
-  },
-  {
     text: "Cup Stacking",
     time: new Date(2019, 2, 30, 19, 30),
     location: "SC Cafeteria B/C"
+  },
+  {
+    text: "Gaming Area Opens",
+    time: new Date(2019, 2, 30, 20),
+    location: "SC 3rd Floor Lounge"
   },
   {
     text: "Nerf Guns Fights",
@@ -68,7 +68,12 @@ module.exports = [
   {
     text: "Party Games",
     time: new Date(2019, 2, 30, 23),
-    location: "SC Dining Hall"
+    location: "SC Dining Room"
+  },
+  {
+    text: "Gaming Area Closes",
+    time: new Date(2019, 2, 31, 0),
+    location: "SC 3rd Floor Lounge"
   },
   {
     text: "Midnight Snack",
@@ -76,14 +81,9 @@ module.exports = [
     location: "SC Cafeteria A"
   },
   {
-    text: "Gaming Area Closes",
-    time: new Date(2019, 2, 31, 1),
-    location: "SC 3rd Floor Lounge"
-  },
-  {
     text: "HawkHack T-Shirt Handout",
     time: new Date(2019, 2, 31, 1),
-    location: "SC 3rd Floor Lounge"
+    location: "SC Ballrooms"
   },
   {
     text: "Breakfast",
