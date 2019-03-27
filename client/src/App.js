@@ -21,10 +21,20 @@ class App extends Component {
     fetch("http://localhost:5000/api/livedata")
       .then(response => response.json())
       .then(result => {
-        this.setState({
-          announcements: result.log,
-          schedule: result.schedule
-        });
+        if (result.schedule) {
+          this.setState({
+            schedule: result.schedule
+          });
+        } else {
+          console.log("[CLIENT ERROR] Schedule not defined");
+        }
+        if (result.log) {
+          this.setState({
+            announcements: result.log
+          });
+        } else {
+          console.log("[CLIENT ERROR] Announcements not defined");
+        }
       })
       .catch(err => console.log(err));
     console.log(this.state.schedule);

@@ -9,21 +9,19 @@ const app = express();
 app.use(cors());
 app.get("/", (req, res) => res.status(200).send("OH YEAH"));
 
-app.get("/api/schedule", (req, res) => {
-  delete require.cache[require.resolve('./schedule')];
-  var _schedule = require("./schedule");
-  var data = {
-    schedule: _schedule
-  };
-  res.status(200).json(data);
-});
-
 app.get("/api/livedata", (_req, _res) => {
   var log = [];
   var data = {};
-  delete require.cache[require.resolve('./schedule')];
-  var _schedule = require("./schedule");
 
+  //flush and grab schedule from local storage
+  try {
+    delete require.cache[require.resolve("./schedule")];
+    var _schedule = require("./schedule");
+  } catch (err) {
+    console.log("[ERROR] Schedule file not found");
+  }
+
+  //request Announcements from Slack
   var options = {
     url: "https://slack.com/api/groups.history",
     qs: {
@@ -31,7 +29,6 @@ app.get("/api/livedata", (_req, _res) => {
       channel: "GH7J5C9FD"
     }
   };
-
   request(options, (err, res, body) => {
     if (err) console.log(err);
     var messages = JSON.parse(body).messages;
