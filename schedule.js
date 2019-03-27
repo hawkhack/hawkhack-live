@@ -25,22 +25,23 @@ module.exports = [
     location: "SC Cafeteria"
   },
   {
-    text: "Talk: Telling Your Technology Story",
+    text: "Google Talk: Telling Your Technology Story",
     time: new Date(2019, 2, 30, 12, 30),
     location: "SC Dining Hall"
   },
   {
-    text: "Workshop: How to use GCP Credits ",
+    text: "Google Workshop: How to use GCP Credits ",
     time: new Date(2019, 2, 30, 14),
     location: "SC Dining Hall"
   },
   {
-    text: "Talk: Hackathon Tactics",
+    text: "Netflix & Lifion Talk: Hackathon Tactics",
     time: new Date(2019, 2, 30, 15, 30),
     location: "SC Dining Hall"
   },
   {
-    text: "Workshop: Natural Language Processing (NLP) and Virtual Assitants",
+    text:
+      "UPS Workshop: Natural Language Processing (NLP) and Virtual Assitants",
     time: new Date(2019, 2, 30, 17),
     location: "SC Dining Hall"
   },
