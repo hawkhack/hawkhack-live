@@ -1,6 +1,6 @@
 module.exports = [
   {
-    text: "Check In",
+    text: "Check-In",
     time: new Date(2019, 2, 30, 9),
     location: "SC Main Enterance"
   },
@@ -25,64 +25,84 @@ module.exports = [
     location: "SC Cafeteria"
   },
   {
-    text: "Workshop 01",
+    text: "Talk: Telling Your Technology Story",
     time: new Date(2019, 2, 30, 12, 30),
     location: "SC Dining Hall"
   },
   {
-    text: "Workshop 02",
+    text: "Workshop: How to use GCP Credits ",
     time: new Date(2019, 2, 30, 14),
     location: "SC Dining Hall"
   },
   {
-    text: "Workshop 03",
-    time: new Date(2019, 2, 30, 15, 15),
+    text: "Talk: Hackathon Tactics",
+    time: new Date(2019, 2, 30, 15, 30),
     location: "SC Dining Hall"
   },
   {
-    text: "Workshop 04",
+    text: "Workshop: Natural Language Processing (NLP) and Virtual Assitants",
     time: new Date(2019, 2, 30, 17),
     location: "SC Dining Hall"
   },
   {
     text: "Dinner",
-    time: new Date(2019, 2, 30, 19),
-    location: "SC Cafeteria"
+    time: new Date(2019, 2, 30, 18, 30),
+    location: "SC Cafeteria A"
   },
   {
     text: "Gaming Area Opens",
-    time: new Date(2019, 2, 30, 20, 45),
+    time: new Date(2019, 2, 30, 19),
     location: "2nd Floor"
   },
   {
     text: "Cup Stacking",
-    time: new Date(2019, 2, 30, 20, 45),
-    location: "N/A"
+    time: new Date(2019, 2, 30, 19, 30),
+    location: "SC Cafeteria B/C"
   },
   {
     text: "Nerf Guns Fights",
-    time: new Date(2019, 2, 30, 22),
-    location: "N/A"
+    time: new Date(2019, 2, 30, 20, 45),
+    location: "SC Cafeteria A"
+  },
+  {
+    text: "Party Games",
+    time: new Date(2019, 2, 30, 23),
+    location: "SC Dining Hall"
   },
   {
     text: "Midnight Snack",
     time: new Date(2019, 2, 31, 0),
-    location: "SC Cafeteria"
+    location: "SC Cafeteria A"
   },
   {
-    text: "Slideshow Karaoke",
+    text: "Gaming Area Closes",
     time: new Date(2019, 2, 31, 1),
-    location: "DSC Dining Hall"
+    location: "SC 3rd Floor Lounge"
+  },
+  {
+    text: "HawkHack T-Shirt Handout",
+    time: new Date(2019, 2, 31, 1),
+    location: "SC 3rd Floor Lounge"
   },
   {
     text: "Breakfast",
-    time: new Date(2019, 2, 31, 9),
+    time: new Date(2019, 2, 31, 6, 30),
     location: "SC Cafeteria"
   },
   {
+    text: "Hacking Ends",
+    time: new Date(2019, 2, 31, 11),
+    location: ""
+  },
+  {
     text: "Lunch",
-    time: new Date(2019, 2, 31, 12),
+    time: new Date(2019, 2, 31, 11),
     location: "SC Cafeteria"
+  },
+  {
+    text: "Judging and Demos",
+    time: new Date(2019, 2, 31, 12),
+    location: ""
   },
   {
     text: "Closing Ceremony",
