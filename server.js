@@ -23,10 +23,10 @@ app.get("/api/livedata", (_req, _res) => {
 
   //request Announcements from Slack
   var options = {
-    url: "https://slack.com/api/groups.history",
+    url: "https://slack.com/api/channels.history",
     qs: {
       token: token,
-      channel: "GH7J5C9FD"
+      channel: "CFLBU2GCF"
     }
   };
   request(options, (err, res, body) => {
